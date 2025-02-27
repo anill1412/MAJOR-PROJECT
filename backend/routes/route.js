@@ -124,5 +124,22 @@ router.delete("/api/notifications/:id", teacherNotificationController.deleteNoti
 
 const { getNotifications } = require("../controllers/teacherNotificationController2");
 
-router.get("/api/notifications/teacher/:teacherId", getNotifications);
+router.get("/api/notifications/teacher/:teacherID", getNotifications);
+
+const { getTeacherEmails } = require("../controllers/teacher-controller");
+
+// const router = express.Router();
+
+router.get("/api/teacher/emails", getTeacherEmails);
+// const {Teacher }= require("../models/teacherSchema"); 
+// router.get("/api/teacher/emails", async (req, res) => {
+//     try {
+//       const teachers = await Teacher.find({ role: "Teacher" }).select("email");
+//       res.json(teachers);
+//     } catch (error) {
+//       res.status(500).json({ message: "Failed to fetch teachers", error });
+//     }
+//   });
+  
+//   module.exports = router;
 module.exports = router;

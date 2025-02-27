@@ -9,7 +9,7 @@ import AnnouncementOutlinedIcon from '@mui/icons-material/AnnouncementOutlined';
 import ClassOutlinedIcon from '@mui/icons-material/ClassOutlined';
 import TuneIcon from '@mui/icons-material/Tune';
 import { useSelector } from 'react-redux';
-
+import NotificationsIcon from '@mui/icons-material/Notifications';
 const TeacherSideBar = () => {
     const { currentUser } = useSelector((state) => state.user);
     const sclassName = currentUser.teachSclass
@@ -38,7 +38,7 @@ const TeacherSideBar = () => {
                 </ListItemButton>
                 <ListItemButton component={Link} to="/Teacher/notification">
                     <ListItemIcon>
-                        <ClassOutlinedIcon color={location.pathname.startsWith("/Teacher/notification") ? 'primary' : 'inherit'} />
+                        <NotificationsIcon color={location.pathname.startsWith("/Teacher/notification") ? 'primary' : 'inherit'} />
                     </ListItemIcon>
                     <ListItemText primary="Notifications" />
                 </ListItemButton>

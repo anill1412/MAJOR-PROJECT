@@ -12,6 +12,7 @@ import SupervisorAccountOutlinedIcon from '@mui/icons-material/SupervisorAccount
 import ReportIcon from '@mui/icons-material/Report';
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import AssignmentIcon from '@mui/icons-material/Assignment';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 
 const SideBar = () => {
     const location = useLocation();
@@ -66,12 +67,13 @@ const SideBar = () => {
                     </ListItemIcon>
                     <ListItemText primary="timetable" />
                 </ListItemButton>
-                <ListItemButton component={Link} to="/Admin/teachernotification" title="TeacherNotification">
-                    <ListItemIcon>
-                        <ScheduleIcon color={location.pathname.startsWith("/Admin/teachernotification") ? 'primary' : 'inherit'} />
-                    </ListItemIcon>
-                    <ListItemText primary="teachernotification" />
-                </ListItemButton>
+                
+<ListItemButton component={Link} to="/Admin/teachernotification" title="TeacherNotification">
+    <ListItemIcon>
+        <NotificationsIcon color={location.pathname.startsWith("/Admin/teachernotification") ? 'primary' : 'inherit'} />
+    </ListItemIcon>
+    <ListItemText primary="Teacher Notification" />
+</ListItemButton>
                 
                 
             </React.Fragment>

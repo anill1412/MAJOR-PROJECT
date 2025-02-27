@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const Teacher = require('../models/teacherSchema.js');
 const Subject = require('../models/subjectSchema.js');
+const mongoose = require("mongoose");
 
 const teacherRegister = async (req, res) => {
     const { name, email, password, role, school, teachSubject, teachSclass } = req.body;
@@ -191,7 +192,14 @@ const teacherAttendance = async (req, res) => {
         res.status(500).json(error)
     }
 };
-
+const getTeacherEmails = async (req, res) => {
+        try {
+          const teachers = await Teacher.find({ role: "Teacher" }).select("email");
+          res.json(teachers);
+        } catch (error) {
+          res.status(500).json({ message: "Failed to fetch teachers", error });
+        }
+      };
 module.exports = {
     teacherRegister,
     teacherLogIn,
@@ -201,5 +209,6 @@ module.exports = {
     deleteTeacher,
     deleteTeachers,
     deleteTeachersByClass,
-    teacherAttendance
+    teacherAttendance,
+    getTeacherEmails
 };
